@@ -1,60 +1,64 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import './Projects.css';
+import rideoLogo from '../assets/project-rideo-logo.png';
+import prayordieLogo from '../assets/project-prayordie-logo.png';
+import uncommonLogo from '../assets/project-uncommon-logo.png';
+import mytripLogo from '../assets/project-mytrip-logo.png';
+import upickLogo from '../assets/project-upick-logo.png';
 
 const Projects = () => {
     const projects = [
         {
             id: 1,
-            title: 'Coming Soon',
+            title: 'Coming Soon', // Special case
             subtitle: 'N/A',
-            status: 'N/A',
-            theme: 'dark'
+            isComingSoon: true,
+            theme: 'dark-grey'
         },
         {
             id: 2,
-            title: 'Ride',
-            subtitle: 'Ready. Set. Go. Ride.',
-            category: 'Ride Booking App',
-            status: 'Full Case',
-            theme: 'green',
-            logoText: 'Ride'
+            title: 'Rideo',
+            subtitle: 'End-to-end Travel Service - Assess Project',
+            status: 'In-progress',
+            image: rideoLogo,
+            theme: 'dark-green',
+            logoAlt: 'Rideo'
         },
         {
             id: 3,
-            title: 'Peryton',
-            subtitle: 'Digital fashion platform',
-            category: 'E-commerce',
-            status: 'Full Case',
-            theme: 'forest',
-            logoText: 'PARYTON'
+            title: 'PrayorDie',
+            subtitle: 'Clothing Service - Volunteer Project',
+            status: 'In-progress',
+            image: prayordieLogo,
+            theme: 'black-green',
+            logoAlt: 'PrayorDie'
         },
         {
             id: 4,
-            title: 'Uncommon Limit',
-            subtitle: 'Learning management system',
-            category: 'EdTech',
-            status: 'Full Case',
+            title: 'Uncommon LMS',
+            subtitle: 'Learning-management Service - Internal Project',
+            status: '06 June 2025',
+            image: uncommonLogo,
             theme: 'blue',
-            logoText: 'uncommon'
+            logoAlt: 'Uncommon'
         },
         {
             id: 5,
-            title: 'MySky Network',
-            subtitle: 'Internet access made simple',
-            category: 'Telecommunications',
-            status: 'Full Case',
+            title: 'MyTrip Nature Travel',
+            subtitle: 'End-to-end Travel Service - Assessment Project',
+            status: '24 January 2025',
+            image: mytripLogo,
             theme: 'white',
-            logoText: 'MySky'
+            logoAlt: 'MyTrip'
         },
         {
             id: 6,
-            title: 'Uptime',
-            subtitle: 'Delivery Service Application',
-            category: 'Logistics',
-            status: 'In Progress',
+            title: 'Upick',
+            subtitle: 'Delivery Service - Paid Project',
+            status: '19 September 2024',
+            image: upickLogo,
             theme: 'yellow',
-            logoText: 'Uptime'
+            logoAlt: 'Upick'
         }
     ];
 
@@ -62,7 +66,7 @@ const Projects = () => {
         <section className="projects-section section-padding" id="projects">
             <div className="container">
                 <div className="section-header text-center">
-                    <div className="section-badge">Selected Work</div>
+                    <div className="section-badge">Works & Projects</div>
                     <h2 className="section-title">
                         Check out my design <span className="text-italic-serif text-muted">projects</span>.
                     </h2>
@@ -72,24 +76,29 @@ const Projects = () => {
                 </div>
 
                 <div className="projects-grid">
-                    {projects.map((project, index) => (
-                        <div
-                            key={project.id}
-                            className={`project-card theme-${project.theme} animate-fade-in delay-${(index % 3) * 100}`}
-                        >
-                            <div className="card-content">
-                                <div className="project-logo">
-                                    {project.logoText || 'Logo'}
-                                </div>
+                    {projects.map((project) => (
+                        <div key={project.id} className="project-item">
+                            {/* Visual Card */}
+                            <div className={`project-card theme-${project.theme}`}>
+                                {project.isComingSoon ? (
+                                    <div className="coming-soon-content">
+                                        <h3>Coming Soon</h3>
+                                    </div>
+                                ) : (
+                                    <div className="card-image-wrapper">
+                                        <img src={project.image} alt={project.logoAlt} className="project-image" />
+                                    </div>
+                                )}
+                            </div>
 
-                                <div className="project-info">
-                                    <h3 className="project-title">{project.title}</h3>
-                                    <p className="project-subtitle">{project.subtitle}</p>
-                                </div>
-
-                                <div className="project-footer">
-                                    <span className="project-status">{project.status}</span>
-                                </div>
+                            {/* Info Below Card */}
+                            <div className="project-meta">
+                                <h3 className="meta-title">{project.title}</h3>
+                                <div className="meta-divider"></div>
+                                <p className="meta-subtitle">{project.subtitle}</p>
+                                <span className={`meta-pill ${project.isComingSoon ? 'pill-na' : ''}`}>
+                                    {project.status || 'N/A'}
+                                </span>
                             </div>
                         </div>
                     ))}

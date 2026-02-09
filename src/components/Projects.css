@@ -1,118 +1,205 @@
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
-.project-card {
-    border-radius: 20px;
-    height: 350px;
-    position: relative;
-    overflow: hidden;
-    transition: transform var(--transition-normal);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-.card-content {
-    width: 100%;
-    height: 100%;
+/* The main container acts as the "Card" with the rounded corners */
+.project-item {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: var(--spacing-md);
-    position: relative;
-    z-index: 2;
+    border-radius: 40px;
+    overflow: hidden;
+    /* Clips children to the border radius */
+    height: 540px;
+    /* Increased height */
+    /* Fixed height for uniformity */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    background-color: #0c0c0c;
+    /* Fallback/Bottom bg */
 }
 
-.project-logo {
-    flex-grow: 1;
+.project-item:hover {
+    transform: translateY(-8px);
+}
+
+/* TOP SECTION: Visual/Image */
+.project-card {
+    height: 55%;
+    /* Adjusted to 55% */
+    /* Fixed percentage */
+    flex: none;
+    /* Disable flex growing/shrinking based on content */
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 900;
-    font-size: 2rem;
-    text-transform: uppercase;
+    position: relative;
+    /* Border radius is handled by parent overflow:hidden, 
+       but we can add it to top corners just in case of slight bleeding */
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
 }
 
-.project-info {
-    margin-top: auto;
-}
-
-.project-title {
-    font-size: var(--font-size-lg);
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-}
-
-.project-subtitle {
-    font-size: var(--font-size-sm);
-    opacity: 0.8;
-    margin-bottom: var(--spacing-sm);
-}
-
-.project-footer {
+.card-image-wrapper {
+    width: 50%;
+    /* Reduced standard size */
+    height: 50%;
+    /* Reduced standard size */
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
 }
 
-.project-status {
-    padding: 0.3rem 0.8rem;
-    border-radius: 50px;
-    font-size: var(--font-size-xs);
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    text-transform: uppercase;
+/* Card 4 (Blue Theme) Specific override for larger icon */
+.theme-blue .card-image-wrapper {
+    width: 70%;
+    height: 70%;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.coming-soon-content h3 {
+    font-size: 32px;
     font-weight: 500;
+    color: white;
 }
 
-/* Themes */
-.theme-dark {
-    background-color: #1a1a1a;
-    color: #fff;
+/* Themes for Top Section */
+.theme-dark-grey {
+    background-color: #1E1E1E;
+    /* Card 1 */
 }
 
-.theme-green {
-    background-color: #1A3C34;
-    /* Dark Teal/Green */
-    color: #fff;
+.theme-dark-green {
+    background-color: #13342B;
+    /* Card 2 */
 }
 
-.theme-forest {
-    background-color: #0b2210;
-    /* Very dark green */
-    color: #fff;
+.theme-black-green {
+    background-color: #082703;
+    /* Card 3 */
 }
 
 .theme-blue {
-    background-color: #0044cc;
-    /* Uncommon blue */
-    color: #fff;
+    background-color: #0747A1;
+    /* Card 4 */
 }
 
 .theme-white {
-    background-color: #ffffff;
-    color: #000;
+    background-color: #FFFFFF;
+    /* Card 5 */
 }
 
-.theme-white .project-status {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #000;
-}
+/* For white theme, text/logo handling might need adjustment */
 
 .theme-yellow {
-    background-color: #f1c40f;
-    color: #000;
+    background-color: #F2CE16;
+    /* Card 6 */
 }
 
-.theme-yellow .project-status {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #000;
+
+/* BOTTOM SECTION: Meta Data */
+.project-meta {
+    height: 45%;
+    /* Increased to 45% */
+    /* Fixed percentage (remaining space) */
+    flex: none;
+    /* Disable flex growing/shrinking based on content */
+    background-color: #0c0c0c;
+    /* Specific dark background */
+    padding: 30px 30px;
+    /* Reduced vertical padding slightly to ensure fit */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Start from top */
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.meta-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.meta-divider {
+    display: none;
+    /* Removed */
+}
+
+.meta-subtitle {
+    font-size: 16px;
+    color: #888;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Status Pill */
+.meta-pill {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #1a1a1a;
+    border-radius: 50px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: auto;
+    /* Push to bottom */
+}
+
+.pill-na {
+    background-color: #222;
+    color: #666;
+}
+
+/* Placeholder for MyTrip */
+.placeholder-logo {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diamond-shape {
+    width: 60px;
+    height: 60px;
+    background-color: #4facfe;
+    transform: rotate(45deg);
+    border: 4px solid #b7eaff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .project-item {
+        height: 550px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .project-item {
+        height: 500px;
+    }
 }
