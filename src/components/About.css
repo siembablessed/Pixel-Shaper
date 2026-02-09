@@ -1,0 +1,111 @@
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.col-title {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-app);
+    /* Typo in prev step? standardizing on spacing-md */
+    margin-bottom: var(--spacing-md);
+}
+
+/* Experience List */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid var(--border-subtle);
+}
+
+.experience-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+}
+
+.exp-dot {
+    position: absolute;
+    left: -27px;
+    /* Adjust based on border padding */
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--bg-primary);
+    border: 2px solid #2ed573;
+    /* Green dot */
+    border-radius: 50%;
+}
+
+.exp-content {
+    flex-grow: 1;
+}
+
+.exp-company {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.exp-role {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.exp-period-badge {
+    font-size: var(--font-size-xs);
+    padding: 0.2rem 0.6rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* Stacks List */
+.stacks-col {
+    background-color: var(--bg-card);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+}
+
+.stacks-subtitle {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.stacks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.stack-item {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    transition: background-color var(--transition-fast);
+}
+
+.stack-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-primary);
+}

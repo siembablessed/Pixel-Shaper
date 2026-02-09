@@ -1,0 +1,118 @@
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.project-card {
+    border-radius: 20px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-normal);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    position: relative;
+    z-index: 2;
+}
+
+.project-logo {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.project-info {
+    margin-top: auto;
+}
+
+.project-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.project-subtitle {
+    font-size: var(--font-size-sm);
+    opacity: 0.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-status {
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: var(--font-size-xs);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* Themes */
+.theme-dark {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.theme-green {
+    background-color: #1A3C34;
+    /* Dark Teal/Green */
+    color: #fff;
+}
+
+.theme-forest {
+    background-color: #0b2210;
+    /* Very dark green */
+    color: #fff;
+}
+
+.theme-blue {
+    background-color: #0044cc;
+    /* Uncommon blue */
+    color: #fff;
+}
+
+.theme-white {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.theme-white .project-status {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+.theme-yellow {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+.theme-yellow .project-status {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #000;
+}

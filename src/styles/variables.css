@@ -1,0 +1,42 @@
+:root {
+  /* Colors */
+  --bg-primary: #050505; /* Deep black */
+  --bg-secondary: #0a0a0a; /* Slightly lighter for cards/sections */
+  --bg-card: #141414;
+  --bg-card-hover: #1f1f1f;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1a1;
+  --text-muted: #666666;
+
+  --accent-primary: #FF5E00; /* Distinct orange from "Hire Me" button */
+  --accent-hover: #e05200;
+  
+  --border-subtle: #333333;
+
+  /* Typography */
+  --font-family-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+  --font-size-display: 4.5rem; /* For the main "Shaping the future" text */
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Layout */
+  --container-width: 1200px;
+  --header-height: 80px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

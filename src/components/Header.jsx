@@ -1,0 +1,30 @@
+import React from 'react';
+import './Header.css';
+import logo from '../assets/logo.png';
+
+const Header = () => {
+  return (
+    <div className="header-container">
+      <header className="header">
+        <div className="logo-container">
+          <img src={logo} alt="Collin Manyande" className="logo" />
+        </div>
+        
+        <nav className="nav-links">
+          <a href="#home" className="nav-link active">Home</a>
+          <a href="#about" className="nav-link">About</a>
+          <a href="#projects" className="nav-link">Projects</a>
+        </nav>
+
+        <div className="header-actions">
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <button className="linkedin-btn">LinkedIn</button>
+          </a>
+          <button className="hire-me-btn">Hire Me</button>
+        </div>
+      </header>
+    </div>
+  );
+};
+
+export default Header;
