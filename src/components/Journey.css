@@ -1,94 +1,155 @@
 .journey-section {
-    background-color: var(--bg-primary);
+    background-color: #0a0a0a;
+    padding: 100px 0;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 60px;
 }
 
 .section-badge {
     display: inline-block;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid var(--border-subtle);
+    padding: 8px 20px;
+    border: 1px solid #333;
     border-radius: 50px;
-    font-size: var(--font-size-xs);
-    color: var(--text-muted);
-    text-transform: uppercase;
-    margin-bottom: var(--spacing-sm);
+    font-size: 14px;
+    color: #cccccc;
+    margin-bottom: 20px;
 }
 
 .section-title {
-    font-size: var(--font-size-3xl);
+    font-size: 56px;
     font-weight: 700;
-    margin-bottom: var(--spacing-xs);
+    margin-bottom: 10px;
+    color: white;
 }
 
 .text-muted {
-    color: #555;
-    /* Darker grey for the italic text */
+    color: #666;
+}
+
+.text-italic-serif {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
 }
 
 .section-subtitle {
-    color: var(--text-muted);
-    font-size: var(--font-size-base);
-    max-width: 500px;
+    color: #888;
+    font-size: 18px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .journey-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* Increased gap */
+    max-width: 1400px;
+    /* Wider container for larger cards */
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.journey-row {
+    display: flex;
+    gap: 30px;
+    /* Increased gap */
+    justify-content: center;
 }
 
 .journey-card {
-    background-color: var(--bg-card);
-    padding: var(--spacing-lg) var(--spacing-md);
-    border-radius: 12px;
+    background-color: #121212;
+    /* Specified color */
+    border-radius: 40px;
+    padding: 50px 30px;
+    /* Slightly reduced padding */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    transition: transform var(--transition-normal), background-color var(--transition-normal);
-    cursor: default;
-    min-height: 250px;
-    /* Make them square-ish vertical cards */
+    min-height: 380px;
+    /* Reduced height */
+    transition: transform 0.3s ease;
+    border: none;
+    /* Removed border */
+    flex: 1;
 }
 
 .journey-card:hover {
-    transform: translateY(-8px);
-    background-color: var(--bg-card-hover);
+    transform: translateY(-5px);
+    border-color: #333;
 }
 
 .icon-wrapper {
-    color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
-    opacity: 0.8;
-    transition: opacity var(--transition-fast);
+    /* Removed background/size/border-radius to let image be the icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: auto;
+    margin-top: auto;
+    /* Push content up - center visually in top half space */
 }
 
-.journey-card:hover .icon-wrapper {
-    opacity: 1;
-    color: var(--accent-primary);
-}
 
-.step-icon {
-    width: 32px;
-    height: 32px;
+
+.step-info {
+    margin-top: auto;
+    /* Push to bottom */
 }
 
 .step-number {
-    font-size: var(--font-size-xs);
-    color: var(--text-muted);
-    margin-bottom: var(--spacing-xs);
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
 }
 
 .step-title {
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    margin: 0;
+}
+
+@media (min-width: 769px) {
+    .journey-row.bottom-row .journey-card:nth-child(1) {
+        flex: 1;
+        /* Standard width (approx 33% of container) */
+    }
+
+    .journey-row.bottom-row .journey-card:nth-child(2) {
+        flex: 2;
+        /* Wider width (approx 66% of container) */
+    }
+}
+
+.journey-card .step-icon {
+    width: 60px;
+    /* Increased size for images */
+    height: 60px;
+    object-fit: contain;
+    object-fit: contain;
+    transition: filter 0.3s ease;
+}
+
+.journey-card:hover .step-icon {
+    /* Filter to match #ff4d00 (Orange) */
+    filter: brightness(0) saturate(100%) invert(32%) sepia(96%) saturate(1450%) hue-rotate(3deg) brightness(101%) contrast(106%);
+}
+
+@media (max-width: 768px) {
+    .journey-row {
+        flex-direction: column;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    .journey-card {
+        min-height: 300px;
+    }
 }

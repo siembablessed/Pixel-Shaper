@@ -1,36 +1,40 @@
 import React from 'react';
-import { Search, FileText, Lightbulb, PenTool, Package } from 'lucide-react';
 import './Journey.css';
+import iconStep1 from '../assets/icon-step-1.png';
+import iconStep2 from '../assets/icon-step-2.png';
+import iconStep3 from '../assets/icon-step-3.png';
+import iconStep4 from '../assets/icon-step-4.png';
+import iconStep5 from '../assets/icon-step-5.png';
 
 const Journey = () => {
     const steps = [
         {
             id: 1,
-            icon: <Search className="step-icon" />,
+            icon: iconStep1,
             title: 'Discover',
             description: 'Understanding requirements & user needs.'
         },
         {
             id: 2,
-            icon: <FileText className="step-icon" />,
+            icon: iconStep2,
             title: 'Define',
             description: 'Structuring the problem & solution path.'
         },
         {
             id: 3,
-            icon: <Lightbulb className="step-icon" />,
+            icon: iconStep3,
             title: 'Ideate',
             description: 'Brainstorming creative possibilities.'
         },
         {
             id: 4,
-            icon: <PenTool className="step-icon" />,
+            icon: iconStep4,
             title: 'Prototype',
             description: 'Building interactive mockups.'
         },
         {
             id: 5,
-            icon: <Package className="step-icon" />,
+            icon: iconStep5,
             title: 'Deliver',
             description: 'Final execution & handoff.'
         }
@@ -51,18 +55,35 @@ const Journey = () => {
                 </div>
 
                 <div className="journey-grid">
-                    {steps.map((step, index) => (
-                        <div key={step.id} className={`journey-card animate-fade-in delay-${(index + 1) * 100}`}>
-                            <div className="icon-wrapper">
-                                {step.icon}
+                    {/* Top Row: 3 cards */}
+                    <div className="journey-row top-row">
+                        {steps.slice(0, 3).map((step, index) => (
+                            <div key={step.id} className="journey-card">
+                                <div className="icon-wrapper">
+                                    <img src={step.icon} alt={step.title} className="step-icon" />
+                                </div>
+                                <div className="step-info">
+                                    <div className="step-number">Step {step.id}</div>
+                                    <h3 className="step-title">{step.title}</h3>
+                                </div>
                             </div>
-                            <div className="step-number">Step 0{step.id}</div>
-                            <h3 className="step-title">{step.title}</h3>
-                            {/* Description is hidden in design per image, but good for SEO/Hover? 
-                  The image just shows Icon + 'Step 01' + 'Discover'. 
-                  I will keep it minimal as per image. */}
-                        </div>
-                    ))}
+                        ))}
+                    </div>
+
+                    {/* Bottom Row: 2 cards */}
+                    <div className="journey-row bottom-row">
+                        {steps.slice(3, 5).map((step, index) => (
+                            <div key={step.id} className="journey-card">
+                                <div className="icon-wrapper">
+                                    <img src={step.icon} alt={step.title} className="step-icon" />
+                                </div>
+                                <div className="step-info">
+                                    <div className="step-number">Step {step.id}</div>
+                                    <h3 className="step-title">{step.title}</h3>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
             </div>
