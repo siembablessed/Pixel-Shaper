@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Projects.css';
 import rideoLogo from '../assets/project-rideo-logo.png';
 import prayordieLogo from '../assets/project-prayordie-logo.png';
@@ -22,7 +23,8 @@ const Projects = () => {
             status: 'In-progress',
             image: rideoLogo,
             theme: 'dark-green',
-            logoAlt: 'Rideo'
+            logoAlt: 'Rideo',
+            link: '/rideo'
         },
         {
             id: 3,
@@ -31,7 +33,8 @@ const Projects = () => {
             status: 'In-progress',
             image: prayordieLogo,
             theme: 'black-green',
-            logoAlt: 'PrayorDie'
+            logoAlt: 'PrayorDie',
+            link: '/pray-or-die'
         },
         {
             id: 4,
@@ -40,7 +43,8 @@ const Projects = () => {
             status: '06 June 2025',
             image: uncommonLogo,
             theme: 'blue',
-            logoAlt: 'Uncommon'
+            logoAlt: 'Uncommon',
+            link: '/uncommon-lms'
         },
         {
             id: 5,
@@ -76,32 +80,46 @@ const Projects = () => {
                 </div>
 
                 <div className="projects-grid">
-                    {projects.map((project) => (
-                        <div key={project.id} className="project-item">
-                            {/* Visual Card */}
-                            <div className={`project-card theme-${project.theme}`}>
-                                {project.isComingSoon ? (
-                                    <div className="coming-soon-content">
-                                        <h3>Coming Soon</h3>
-                                    </div>
-                                ) : (
-                                    <div className="card-image-wrapper">
-                                        <img src={project.image} alt={project.logoAlt} className="project-image" />
-                                    </div>
-                                )}
-                            </div>
+                    {projects.map((project) => {
+                        const CardContent = (
+                            <>
+                                {/* Visual Card */}
+                                <div className={`project-card theme-${project.theme} ${project.isComingSoon ? 'coming-soon-card-style' : ''}`}>
+                                    {project.isComingSoon ? (
+                                        <div className="coming-soon-content">
+                                            <h3>Coming Soon</h3>
+                                        </div>
+                                    ) : (
+                                        <div className="card-image-wrapper">
+                                            <img src={project.image} alt={project.logoAlt} className="project-image" />
+                                        </div>
+                                    )}
+                                </div>
 
-                            {/* Info Below Card */}
-                            <div className="project-meta">
-                                <h3 className="meta-title">{project.title}</h3>
-                                <div className="meta-divider"></div>
-                                <p className="meta-subtitle">{project.subtitle}</p>
-                                <span className={`meta-pill ${project.isComingSoon ? 'pill-na' : ''}`}>
-                                    {project.status || 'N/A'}
-                                </span>
-                            </div>
-                        </div>
-                    ))}
+                                {/* Info Below Card */}
+                                <div className="project-meta">
+                                    <h3 className="meta-title">{project.title}</h3>
+                                    <div className="meta-divider"></div>
+                                    <p className="meta-subtitle">{project.subtitle}</p>
+                                    <span className={`meta-pill ${project.isComingSoon ? 'pill-na' : ''}`}>
+                                        {project.status || 'N/A'}
+                                    </span>
+                                </div>
+                            </>
+                        );
+
+                        return (
+                            project.link ? (
+                                <Link to={project.link} key={project.id} className="project-item project-link">
+                                    {CardContent}
+                                </Link>
+                            ) : (
+                                <div key={project.id} className={`project-item ${project.isComingSoon ? 'coming-soon-item' : ''}`}>
+                                    {CardContent}
+                                </div>
+                            )
+                        );
+                    })}
                 </div>
             </div>
         </section>

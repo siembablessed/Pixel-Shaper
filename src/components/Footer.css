@@ -20,6 +20,13 @@
     }
 }
 
+/* Centered layout when Skills column is hidden */
+.footer-grid.footer-single-col {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 .footer-title {
     font-size: var(--font-size-lg);
     font-weight: 700;
@@ -83,4 +90,17 @@
     align-items: center;
     font-size: var(--font-size-xs);
     color: var(--text-muted);
+}
+
+/* Rideo Page Specific Footer Clean-up */
+.footer.rideo-footer {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.footer.rideo-footer .footer-bottom {
+    border-top: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

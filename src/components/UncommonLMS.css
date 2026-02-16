@@ -1,0 +1,64 @@
+.uncommon-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px 20px 40px;
+    background-color: #0c0c0c;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.uncommon-copyright {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 20px;
+    color: #888;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+}
+
+.uncommon-page .coming-soon-card {
+    background-color: #0747A1;
+    /* Uncommon LMS Blue Theme */
+    width: 100%;
+    max-width: 1400px;
+    height: 55vh;
+    min-height: 400px;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.uncommon-page .coming-soon-text {
+    font-size: 80px;
+    /* Adjusted for length */
+    font-weight: 500;
+    color: white;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -2px;
+}
+
+@media (max-width: 768px) {
+    .uncommon-page {
+        padding-top: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .uncommon-page .coming-soon-card {
+        height: 50vh;
+        border-radius: 30px;
+    }
+
+    .uncommon-page .coming-soon-text {
+        font-size: 40px;
+    }
+}

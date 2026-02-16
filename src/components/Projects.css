@@ -203,3 +203,22 @@
         height: 500px;
     }
 }
+
+.project-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grey out coming soon items */
+.coming-soon-item {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+    /* Optional: prevents clicking */
+}
+
+.coming-soon-item:hover {
+    transform: none;
+}

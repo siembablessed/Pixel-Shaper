@@ -1,40 +1,40 @@
 import React from 'react';
 import './Journey.css';
-import iconStep1 from '../assets/icon-step-1.png';
-import iconStep2 from '../assets/icon-step-2.png';
-import iconStep3 from '../assets/icon-step-3.png';
-import iconStep4 from '../assets/icon-step-4.png';
-import iconStep5 from '../assets/icon-step-5.png';
+import iconJourney1 from '../assets/icon-journey-1.png';
+import iconJourney2 from '../assets/icon-journey-2.png';
+import iconJourney3 from '../assets/icon-journey-3.png';
+import iconJourney4 from '../assets/icon-journey-4.png';
+import iconJourney5 from '../assets/icon-journey-5.png';
 
 const Journey = () => {
     const steps = [
         {
             id: 1,
-            icon: iconStep1,
+            icon: iconJourney1,
             title: 'Discover',
             description: 'Understanding requirements & user needs.'
         },
         {
             id: 2,
-            icon: iconStep2,
+            icon: iconJourney2,
             title: 'Define',
             description: 'Structuring the problem & solution path.'
         },
         {
             id: 3,
-            icon: iconStep3,
+            icon: iconJourney3,
             title: 'Ideate',
             description: 'Brainstorming creative possibilities.'
         },
         {
             id: 4,
-            icon: iconStep4,
+            icon: iconJourney4,
             title: 'Prototype',
             description: 'Building interactive mockups.'
         },
         {
             id: 5,
-            icon: iconStep5,
+            icon: iconJourney5,
             title: 'Deliver',
             description: 'Final execution & handoff.'
         }

@@ -81,7 +81,10 @@
 
 .journey-card:hover {
     transform: translateY(-5px);
-    border-color: #333;
+    border-color: #ff4d00;
+    /* Orange border */
+    box-shadow: 0 10px 30px rgba(255, 77, 0, 0.2);
+    /* Orange glow */
 }
 
 .icon-wrapper {
@@ -112,6 +115,11 @@
     font-weight: 500;
     color: white;
     margin: 0;
+    transition: color 0.3s ease;
+}
+
+.journey-card:hover .step-title {
+    color: #ff4d00;
 }
 
 @media (min-width: 769px) {
@@ -128,16 +136,16 @@
 
 .journey-card .step-icon {
     width: 60px;
-    /* Increased size for images */
     height: 60px;
-    object-fit: contain;
     object-fit: contain;
     transition: filter 0.3s ease;
 }
 
 .journey-card:hover .step-icon {
-    /* Filter to match #ff4d00 (Orange) */
-    filter: brightness(0) saturate(100%) invert(32%) sepia(96%) saturate(1450%) hue-rotate(3deg) brightness(101%) contrast(106%);
+    /* Hover effect removed to show original icon state */
+    transform: scale(1.1);
+    /* Adding a slight scale instead of color change for feedback */
+    transition: transform 0.3s ease;
 }
 
 @media (max-width: 768px) {

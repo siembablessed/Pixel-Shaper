@@ -1,13 +1,20 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { Linkedin, Mail, Smartphone, Globe } from 'lucide-react';
 import './Footer.css';
 
 const Footer = () => {
+    const location = useLocation();
+    const isRideoPage = location.pathname === '/rideo';
+    const isPrayOrDiePage = location.pathname === '/pray-or-die';
+
     const skills = [
         'Research', 'Strategy', 'UI/UX', 'Prototyping',
         'Wireframing', 'User Flows', 'User Testing', 'Design System',
         'Persona', 'Mobile App', 'Web App', 'SaaS'
     ];
+
+    if (isRideoPage || isPrayOrDiePage) return null;
 
     return (
         <footer className="footer section-padding">
@@ -38,7 +45,6 @@ const Footer = () => {
                         </a>
                     </div>
                 </div>
-
             </div>
 
             <div className="container footer-bottom">
